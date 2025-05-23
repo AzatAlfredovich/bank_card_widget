@@ -6,7 +6,7 @@ def get_mask_card_number(card_number: Union[str]) -> str:
     """Функция, принимающая на вход номер карты и возвращающая маску номера, показывая 4 первые и 4 последние цифры"""
 
     card_number = card_number.replace(" ", "")
-    masked_card_number = " ".join(card_number[i: i + 4] for i in range(0, len(card_number), 4))
+    masked_card_number = " ".join(card_number[i : i + 4] for i in range(0, len(card_number), 4))
     masked_card_number_list = list(masked_card_number)
 
     for i in range(len(masked_card_number_list)):
