@@ -14,3 +14,11 @@ def mask_account_card(card_or_account_number: Union[str]) -> str:
             card_or_account_number[-16:], get_mask_card_number(card_or_account_number[-16:])
         )
         return masked_card_number
+
+
+def get_date(current_date: Union[str]) -> str:
+    new_date = []
+    new_date.append(current_date[8:10])
+    new_date.append(current_date[5:7])
+    new_date.append(current_date[:4])
+    return ".".join(new_date)
