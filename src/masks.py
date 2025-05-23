@@ -1,4 +1,4 @@
-from mypy.types import Union
+from typing import Union
 
 
 # Функция теперь имеет аннотацию по типам - какой на входе и выходе
