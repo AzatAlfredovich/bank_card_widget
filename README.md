@@ -9,9 +9,9 @@
 
 1. ***Клонируйте репозиторий по ссылке HTTPS или SSH:***
 
-   Ссылка HTTPS: https://github.com/AzatAlfredovich/bank_card_widget.git
+   Ссылка HTTPS: ```https://github.com/AzatAlfredovich/bank_card_widget.git```
 
-   Ссылка SSH: git@github.com:AzatAlfredovich/bank_card_widget.git
+   Ссылка SSH: ```git@github.com:AzatAlfredovich/bank_card_widget.git```
 
 2. ***Перейдите в директорию проекта:***
 
@@ -24,24 +24,20 @@
 ### 2. Примеры функций:
 
    - 1.Функция, принимающая на вход номер карты и возвращающая маску номера, показывая 4 первые и 4 последние цифры
-
-
-    get_mask_card_number
-
+```
+get_mask_card_number
+```
   - 2.Функция, принимающая на вход номер аккаунта и возвращающая маску номера, 4 последние цифры, перед которыми **
-
-
-    get_mask_account
-
+```
+get_mask_account
+```
   - 3.Функция, принимающая на вход номер карты или счета, возвращающая маску с частичным номером карты или последними 4 цифрами номера счета
-
-
-    mask_account_card
-
+```
+mask_account_card
+```
   - 4.Функция, принимающая на вход строку в формате, возвращающая чистую дату
-
-
+```
     get_date
-
+```
 ### 3. Улучшения 
 Если вам есть что дополнить в проекте - вы всегда можете скопировать проект и сделать "pull request"
