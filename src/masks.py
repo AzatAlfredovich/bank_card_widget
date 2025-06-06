@@ -7,6 +7,8 @@ def get_mask_card_number(card_number: Union[str]) -> str:
     не показывая часть, но показывая 4 последние цифры"""
 
     card_number = card_number.replace(" ", "")
+    if len(card_number) < 16:
+        card_number = "0000000000000000"
     masked_card_number = " ".join(card_number[i : i + 4] for i in range(0, len(card_number), 4))
     masked_card_number_list = list(masked_card_number)
 
@@ -22,5 +24,7 @@ def get_mask_account(account_number: Union[str]) -> str:
     """Функция, принимающая на вход номер аккаунта и возвращающая маску номера,
     4 последние цифры, перед которыми **"""
     account_number_united = account_number.replace(" ", "")
+    if len(account_number) < 20:
+        account_number_united = "00000000000000000000"
     number_mask = str(account_number_united[-4:])
     return f"**{number_mask}"
