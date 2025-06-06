@@ -16,16 +16,3 @@ def sort_by_date(operation_list: list[dict[str, Any]], reverse_need: bool = True
     """Функция, принимающая список словарей и необязательный параметр, задающий порядок сортировки
     (по умолчанию — убывание) и возвращающая новый список, отсортированный по дате (date)"""
     return sorted(operation_list, key=lambda item: item["date"], reverse=reverse_need)
-
-
-if __name__ == "__main__":
-    test_list = [
-        {"id": 12, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-        {"id": 34, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-        {"id": 56, "state": "CANCELED", "date": "2017-06-30T02:08:58.425572"},
-        {"id": 78, "state": "CANCELED", "date": "2020-06-30T02:08:58.425572"},
-    ]
-    print(filter_by_state(test_list, "EXECUTED"))
-    print(filter_by_state(test_list, "CANCELED"))
-    print(sort_by_date(test_list, True))
-    print(sort_by_date(test_list, False))
