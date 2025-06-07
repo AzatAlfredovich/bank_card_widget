@@ -24,7 +24,7 @@ def get_mask_account(account_number: Union[str]) -> str:
     """Функция, принимающая на вход номер аккаунта и возвращающая маску номера,
     4 последние цифры, перед которыми **"""
     account_number_united = account_number.replace(" ", "")
-    if len(account_number) < 20:
+    if len(account_number_united) < 20:
         account_number_united = "00000000000000000000"
     number_mask = str(account_number_united[-4:])
     return f"**{number_mask}"
