@@ -26,8 +26,4 @@ def mask_account_card(card_or_account_number: Union[str]) -> str:
 
 def get_date(current_date: Union[str]) -> str:
     """Функция, принимающая на вход строку в формате, возвращающая чистую дату"""
-    new_date = []
-    new_date.append(current_date[8:10])
-    new_date.append(current_date[5:7])
-    new_date.append(current_date[:4])
-    return ".".join(new_date)
+    return current_date[8:10] + "." + current_date[5:7] + "." + current_date[:4]
