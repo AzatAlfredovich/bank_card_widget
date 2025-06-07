@@ -20,3 +20,6 @@ def test_mask_account_card(value, expected):
 )
 def test_get_date(value, expected):
     assert get_date(value) == expected
+
+def test_get_date_fixture(fixtest_get_date):
+    assert get_date(fixtest_get_date) == "23.05.2025"
