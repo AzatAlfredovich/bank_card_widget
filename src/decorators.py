@@ -2,9 +2,12 @@ from typing import Any, Callable, Optional
 
 
 def log(filename: Optional[str] = None) -> Callable:
+    """Декоратор, который может логировать работу функции и ее результат как в файл, так и в консоль"""
+
     def decorator(func: Callable) -> Callable:
 
         def write_log(message: str, filename: Optional[str] = None) -> None:
+            """Логирование сообщения с обработкой ошибок"""
             if filename:
                 with open(filename, "a", encoding="utf-8") as f:
                     f.write(message)
