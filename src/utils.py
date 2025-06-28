@@ -12,9 +12,6 @@ def open_json(path: str) -> list:
             return []
 
 
-# print(open_json("../data/operations.json"))
-
-
 def convertor_to_rubles(operation: dict) -> float:
     if operation:
         if operation["operationAmount"]["currency"]["code"] == "RUB":
@@ -24,6 +21,3 @@ def convertor_to_rubles(operation: dict) -> float:
             operation_amount = operation["operationAmount"]["amount"]
             return float(currency_convertor(operation_currency, operation_amount))
     return 0.0
-
-
-print(convertor_to_rubles(open_json("../data/operations.json")[5]))
