@@ -1,11 +1,13 @@
+import os
+
 import requests
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
 
 def currency_convertor(currency: str, amount: float) -> float:
+    """Функция, которая обращается к API для получения текущего курса валюты и конвертации"""
     new_currency = "RUB"
     url = f"https://api.apilayer.com/exchangerates_data/convert?to={new_currency}&from={currency}&amount={amount}"
 
@@ -17,5 +19,5 @@ def currency_convertor(currency: str, amount: float) -> float:
     return float(response.json()["result"])
 
 
-print(currency_convertor("USD", 100))
-print(type(currency_convertor("USD", 100)))
+# print(currency_convertor("USD", 100))
+# print(type(currency_convertor("USD", 100)))
