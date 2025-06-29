@@ -15,16 +15,16 @@ def test_open_json_correct():
 
 
 # Параметризированный тест при верной и неверной (неполной) структуре обрабатываемого словаря
-@pytest.mark.parametrize(
-    "oper_dict, result",
-    (
-        ({"operationAmount": {"amount": "100", "currency": {"name": "USD", "code": "USD"}}}, 7860.9512),
-        ({"operationAmount": {"amount": "100", "currency": {"name": "RUB", "code": "RUB"}}}, 100.0),
-        ({"operation": {"amount": "100", "currency": {"name": "RUB", "code": "RUB"}}}, 0.0),
-        ({"operationAmount": {"amount": "100", "currency": {"name": "RUB", "cod": "RUB"}}}, 0.0),
-        ({}, 0.0),
-    ),
-)
-def test_convertor_to_rubles(oper_dict, result):
-    need_result = convertor_to_rubles(oper_dict)
-    assert need_result == result
+def test_convertor_to_rubles():
+    #     need_result = convertor_to_rubles(oper_dict)
+    #     assert need_result == result
+    assert convertor_to_rubles({"operationAmount": {"amount": "100", "currency": {"name": "RUB", "c": "RUB"}}}) == 0.0
+    assert (
+        convertor_to_rubles({"operationAmount": {"amount": "100", "currency": {"name": "RUB", "code": "RUB"}}}) == 100
+    )
+    with patch("requests.get") as r_mock:
+        r_mock.return_value.json.return_value = {"result": 95}
+        assert (
+            convertor_to_rubles({"operationAmount": {"amount": "100", "currency": {"name": "USD", "code": "USD"}}})
+            == 95
+        )

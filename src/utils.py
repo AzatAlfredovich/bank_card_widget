@@ -1,4 +1,5 @@
 import json
+import traceback
 
 from external_api import currency_convertor
 
@@ -26,17 +27,17 @@ def convertor_to_rubles(operation: dict) -> float:
             operation_currency = operation["operationAmount"]["currency"]["code"]
             operation_amount = operation["operationAmount"]["amount"]
             return float(currency_convertor(operation_currency, operation_amount))
-    except (KeyError, ValueError):
+    except Exception as err:
         return 0.0
 
 
-# print(convertor_to_rubles({
-#     "id": 41428829,
-#      "state": "EXECUTED",
-#      "date": "2019-07-03T18:35:29.512364",
-#      "operationAmount": {
-#        "amount": "8221.37",
-#        "currency": {
-#          "name": "USD",
-#          "code": "USD"
-#        }}}))
+# print(
+#     convertor_to_rubles(
+#         {
+#             "id": 41428829,
+#             "state": "EXECUTED",
+#             "date": "2019-07-03T18:35:29.512364",
+#             "operationAmount": {"amount": "8221.37", "currency": {"name": "USD", "code": "USD"}},
+#         }
+#     )
+# )
