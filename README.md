@@ -17,7 +17,7 @@
 
    C:\Users\User\PycharmProjects\bank_card_widget
 
-3. ***Установите необходимые зависимости через консоль:***
+3. ***Установите необходимые зависимости через терминал:***
 
    pip install -r requirements.txt
 

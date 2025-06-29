@@ -4,6 +4,7 @@ from src.external_api import currency_convertor
 
 
 def test_currency_convertor():
+    """Тест конвертации валюты"""
     with patch("requests.get") as mock_get:
         mock_get.return_value.json.return_value = {"result": 7860.9512}
         result = currency_convertor("USD", 100.0)
