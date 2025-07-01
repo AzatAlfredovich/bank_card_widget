@@ -9,7 +9,7 @@ load_dotenv()
 def currency_convertor(currency: str, amount: float) -> float:
     """Функция, которая обращается к API для получения текущего курса валюты и конвертации"""
     new_currency = "RUB"
-    url = f"https://api.apilayer.com/exchangerates_data/convert"
+    url = "https://api.apilayer.com/exchangerates_data/convert"
 
     payload = {"to": new_currency, "from": currency, "amount": amount}
     headers = {"apikey": os.getenv("API_KEY_LAYER")}

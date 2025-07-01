@@ -1,7 +1,5 @@
 from unittest.mock import mock_open, patch
 
-import pytest
-
 from src.utils import convertor_to_rubles, open_json
 
 

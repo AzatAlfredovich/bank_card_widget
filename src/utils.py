@@ -14,15 +14,15 @@ logger.addHandler(file_handler)
 def open_json(path: str) -> list:
     """Функция, которая преобразует JSON-объект в Python-объект"""
     try:
-        logger.info(f"Преобразовываем JSON-файл в объект Python")
+        logger.info("Преобразовываем JSON-файл в объект Python")
         with open(path, "r", encoding="utf-8") as f:
-            logger.info(f"Файл преобразован")
+            logger.info("Файл преобразован")
             return json.load(f)
     except json.JSONDecodeError:
-        logger.error(f"Ошибка форматирования JSON-файла : {json.JSONDecodeError}")
+        logger.error("Ошибка форматирования JSON-файла : json.JSONDecodeError")
         return []
     except Exception:
-        logger.error(f"Ошибка форматирования JSON-файла : {Exception}")
+        logger.error("Ошибка форматирования JSON-файла : Exception")
         return []
 
 
@@ -31,7 +31,7 @@ def open_json(path: str) -> list:
 
 def convertor_to_rubles(operation: dict) -> float:
     """Функция, которая конвертирует валюту в рубли"""
-    logger.info(f"Конвертируем валюту и считаем сумму")
+    logger.info("Конвертируем валюту и считаем сумму")
     try:
         if operation["operationAmount"]["currency"]["code"] == "RUB":
             logger.info(f"Сумма подсчитана - {operation["operationAmount"]["amount"]}")
@@ -41,8 +41,8 @@ def convertor_to_rubles(operation: dict) -> float:
             operation_amount = operation["operationAmount"]["amount"]
             logger.info(f"Сумма подсчитана - {currency_convertor(operation_currency, operation_amount)}")
             return float(currency_convertor(operation_currency, operation_amount))
-    except Exception as err:
-        logger.error(f"Ошибка, обнуляем сумму и завершаем работу")
+    except Exception:
+        logger.error("Ошибка, обнуляем сумму и завершаем работу")
         return 0.0
 
 
