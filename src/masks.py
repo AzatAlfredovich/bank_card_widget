@@ -1,5 +1,5 @@
-from typing import Union
 import logging
+from typing import Union
 
 logger = logging.getLogger("masks_logger")
 logger.setLevel(logging.INFO)
@@ -7,6 +7,7 @@ file_handler = logging.FileHandler("logs/masks_log.log", "w", "utf-8")
 file_formatter = logging.Formatter("%(asctime)s - %(filename)s - %(funcName)s - %(levelname)s - %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
+
 
 # Функция теперь имеет аннотацию по типам - какой на входе и выходе
 def get_mask_card_number(card_number: Union[str]) -> str:

@@ -10,6 +10,7 @@ file_formatter = logging.Formatter("%(asctime)s - %(filename)s - %(funcName)s - 
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
+
 def open_json(path: str) -> list:
     """Функция, которая преобразует JSON-объект в Python-объект"""
     try:
