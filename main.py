@@ -1,11 +1,15 @@
-from src.masks import get_mask_account, get_mask_card_number
-from src.widget import get_date, mask_account_card
+from src .masks import get_mask_card_number, get_mask_account
+from src .utils import convertor_to_rubles
 
-print(get_mask_card_number("7000 7922 8960 6361"))
-print(get_mask_account("7000792289606361"))
+print(get_mask_card_number('1234 1234 1234 123'))
+print(get_mask_card_number("1234 1234 1234 f,du"))
+print(get_mask_card_number("1234 1234 1234 5678"))
 
-print(mask_account_card("Счет 73654108430135874305"))
-print(mask_account_card("счёт 73654108430135874305"))
-print(mask_account_card("Visa Gold 5999414228426353"))
+print(get_mask_account("1234 1234 1234 1234 567"))
+print(get_mask_account("1234 1234 1234 1234 f,du"))
+print(get_mask_account("1234 1234 1234 1234 5678"))
 
-print(get_date("2025-05-23T02:26:18.671407"))
+print(convertor_to_rubles({"operationAmount": {"amount": "100", "currency": {"name": "RUB", "c": "RUB"}}}))
+print(convertor_to_rubles({"operationAmount": {"amount": "100", "currency": {"name": "RUB", "code": "RUB"}}}))
+print(convertor_to_rubles({"operationAmount": {"amount": "100", "currency": {"name": "USD", "code": "USD"}}}))
+

@@ -14,10 +14,7 @@ def test_open_json_correct():
     assert open_json("") == []
 
 
-# Параметризированный тест при верной и неверной (неполной) структуре обрабатываемого словаря
 def test_convertor_to_rubles():
-    #     need_result = convertor_to_rubles(oper_dict)
-    #     assert need_result == result
     assert convertor_to_rubles({"operationAmount": {"amount": "100", "currency": {"name": "RUB", "c": "RUB"}}}) == 0.0
     assert (
         convertor_to_rubles({"operationAmount": {"amount": "100", "currency": {"name": "RUB", "code": "RUB"}}}) == 100
