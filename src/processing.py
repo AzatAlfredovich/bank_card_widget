@@ -1,13 +1,13 @@
 from typing import Any
 
 
-def filter_by_state(operation_list: list[dict[str, Any]], state: str = "EXECUTED") -> list[dict[str, Any]]:
+def filter_by_state(operation_list: list[dict], state: str = "EXECUTED") -> list:
     """Функция, принимающая список словарей и опционально значение для ключа state
      и возвращающая новый список словарей, содержащий только те словари, у которых ключ
     state соответствует указанному значению."""
     new_list = []
     for item in operation_list:
-        if item.get("state").lower() == state.lower():
+        if item.get("state", "").lower() == state.lower():
             new_list.append(item)
     return new_list
 

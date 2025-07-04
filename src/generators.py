@@ -1,4 +1,4 @@
-from typing import Iterator
+from typing import Generator, Iterator
 
 
 def filter_by_currency(transaction_list: list, currency: str) -> Iterator:
@@ -18,7 +18,7 @@ def filter_by_currency(transaction_list: list, currency: str) -> Iterator:
             yield "Операций в заданной валюте отсутствуют"
 
 
-def transaction_descriptions(transaction_list: list):
+def transaction_descriptions(transaction_list: list) -> Iterator:
     """Генератор, поочередно выдающий описание транзакции"""
     if transaction_list:
         for transaction in transaction_list:
@@ -30,7 +30,7 @@ def transaction_descriptions(transaction_list: list):
         yield "Список транзакций пуст"
 
 
-def card_number_generator(start: int, end: int):
+def card_number_generator(start: int, end: int) -> Generator:
     """Генератор номеров карт в заданном диапазоне"""
     start_int = int(str(start).replace(" ", ""))
     end_int = int(str(end).replace(" ", ""))

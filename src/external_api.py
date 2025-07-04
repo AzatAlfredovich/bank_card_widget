@@ -11,7 +11,7 @@ def currency_convertor(currency: str, amount: float) -> float:
     new_currency = "RUB"
     url = "https://api.apilayer.com/exchangerates_data/convert"
 
-    payload = {"to": new_currency, "from": currency, "amount": amount}
+    payload: dict = {"to": new_currency, "from": currency, "amount": amount}
     headers = {"apikey": os.getenv("API_KEY_LAYER")}
 
     response = requests.get(url, headers=headers, params=payload)

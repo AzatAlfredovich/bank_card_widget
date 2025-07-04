@@ -1,7 +1,7 @@
 import json
 import logging
 
-from external_api import currency_convertor
+from src.external_api import currency_convertor
 
 logger = logging.getLogger("utils_logger")
 logger.setLevel(logging.INFO)
@@ -17,7 +17,7 @@ def open_json(path: str) -> list:
         logger.info("Преобразовываем JSON-файл в объект Python")
         with open(path, "r", encoding="utf-8") as f:
             logger.info("Файл преобразован")
-            return json.load(f)
+            return list(json.load(f))
     except json.JSONDecodeError:
         logger.error("Ошибка форматирования JSON-файла : json.JSONDecodeError")
         return []
