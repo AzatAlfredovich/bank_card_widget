@@ -5,8 +5,8 @@ from src.utils import convertor_to_rubles, open_json
 
 # Тест при верной и неверной (неполной) структуре JSON-файла
 def test_open_json_correct():
-    with patch("builtins.open", mock_open(read_data='{"1" : "2"}')):
-        assert open_json("") == {"1": "2"}
+    with patch("builtins.open", mock_open(read_data='["1"]')):
+        assert open_json("") == ["1"]
     with patch("builtins.open", mock_open(read_data='{"1" : "2"')):
         assert open_json("") == []
     assert open_json("") == []
