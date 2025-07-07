@@ -27,8 +27,8 @@ def open_json(path: str) -> list:
 
 
 # print(open_json("../data/operations.json"))
-
-
+#{'id': 441945886, 'state': 'EXECUTED', 'date': '2019-08-26T10:50:58.294041', 'operationAmount': {'amount': '31957.58', 'currency': {'name': 'руб.', 'code': 'RUB'}}, 'description': 'Перевод организации', 'from': 'Maestro 1596837868705199', 'to': 'Счет 64686473678894779589'}
+#{'id': '650703', 'state': 'EXECUTED', 'date': '2023-09-05T11:30:32Z', 'amount': '16210', 'currency_name': 'Sol', 'currency_code': 'PEN', 'from': 'Счет 58803664561298323391', 'to': 'Счет 39745660563456619397', 'description': 'Перевод организации'}
 def convertor_to_rubles(operation: dict) -> float:
     """Функция, которая конвертирует валюту в рубли"""
     logger.info("Конвертируем валюту и считаем сумму")

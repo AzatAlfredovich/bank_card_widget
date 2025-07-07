@@ -20,7 +20,7 @@ elif user_input_first == "2":
 else:
     print("Выбран XLSX-файл для обработки")
     operation_list = reading_xlsx("data/transactions_excel.xlsx")
-
+print(operation_list[0])
 print("""Необходимо выполнить фильтрацию по статусу. 
 Доступные для фильтровки статусы: EXECUTED, CANCELED, PENDING""")
 user_input_status = input("Введите статус: ")
@@ -40,27 +40,25 @@ if input_sort_by_date.lower()=="да":
     print("Отсортировать по возрастанию или по убыванию? 1/2")
     input_sort_by_date_= input("Сортируем? ")
     if input_sort_by_date_=="1":
-        sort_by_date(filtered_by_state_list, False)
+        filtered_by_state_list = sort_by_date(filtered_by_state_list, False)
     else:
-        sort_by_date(filtered_by_state_list)
-else:
-    pass
+        filtered_by_state_list = sort_by_date(filtered_by_state_list)
 
 print("Выводить только рублевые транзакции? Да/Нет")
 input_filter_by_currency = input("")
-if input_filter_by_currency.lower=="да":
-    filter_by_currency(filtered_by_state_list, "RUB")
+if input_filter_by_currency.lower()=="да":
+    filtered_by_state_list = list(filter_by_currency(filtered_by_state_list, "RUB"))
 else:
     currency_input = input("Введите валюту, по которой список сортируем: ")
-    filter_by_currency(filtered_by_state_list, currency_input.upper())
+    filtered_by_state_list = list(filter_by_currency(filtered_by_state_list, currency_input.upper()))
 
 print("Отфильтровать список транзакций по определенному слову в описании? Да/Нет")
 input_word_filter = input("")
 if input_word_filter.lower() == "да":
     input_word_search = input("Введите слово или ряд букв для поиска: ")
-    search_transaction(filtered_by_state_list, input_word_search)
-else:
-    pass
+    filtered_by_state_list = search_transaction(filtered_by_state_list, input_word_search)
+
+print(f"Всего банковских операций в выборке: {len(filtered_by_state_list)}")
 
 print("Распечатываю итоговый список транзакций...")
-print("Всего банковских операций в выборке:")
+
