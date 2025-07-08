@@ -3,19 +3,12 @@ from typing import Generator, Iterator
 
 def filter_by_currency(transaction_list: list, currency: str) -> Iterator:
     """Функция, фильтрующая транзакции по заданной валюте и возвращающая итератор"""
-    if not transaction_list:
-        yield "Список транзакций пуст"
-    else:
-        found = False
-        for transaction in transaction_list:
-            amount_data = transaction.get("operationAmount")
-            if amount_data and amount_data.get("currency"):
-                current_currency = amount_data["currency"]["code"]
-                if current_currency == currency:
-                    found = True
-                    yield transaction
-        if not found:
-            yield "Операций в заданной валюте отсутствуют"
+    for transaction in transaction_list:
+        if (
+            transaction.get("operationAmount", {}).get("currency", {}).get("code", {}) == currency
+            or transaction.get("currency_code", {}) == currency
+        ):
+            yield transaction
 
 
 def transaction_descriptions(transaction_list: list) -> Iterator:
