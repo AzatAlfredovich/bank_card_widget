@@ -7,7 +7,7 @@ def filter_by_state(operation_list: list[dict], state: str = "EXECUTED") -> list
     state соответствует указанному значению."""
     new_list = []
     for item in operation_list:
-        if item.get("state", "").lower() == state.lower():
+        if str(item.get("state", "")).lower() == state.lower():
             new_list.append(item)
     return new_list
 

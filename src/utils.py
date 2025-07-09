@@ -26,9 +26,6 @@ def open_json(path: str) -> list:
         return []
 
 
-# print(open_json("../data/operations.json"))
-
-
 def convertor_to_rubles(operation: dict) -> float:
     """Функция, которая конвертирует валюту в рубли"""
     logger.info("Конвертируем валюту и считаем сумму")
